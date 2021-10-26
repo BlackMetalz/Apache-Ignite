@@ -1,4 +1,8 @@
-## Source: https://www.gridgain.com/resources/videos/introducing-apache-ignitetm
+## Source: 
+- https://www.gridgain.com/resources/videos/introducing-apache-ignitetm
+- https://www.gridgain.com/resources/videos/introducing-apache-ignite-part--2
+- https://www.gridgain.com/resources/webinars/moving-apacher-ignitetm-production-initial-checklist
+- 
 
 # 1. In-Memory Data Grid
 
