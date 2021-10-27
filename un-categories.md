@@ -55,3 +55,20 @@ Note: Distributing data we use an affinity keys for hashing operation so once we
 
 
 Singleton : nhỏ?
+
+![image](https://user-images.githubusercontent.com/3434274/139018816-fc0d71e0-5879-4933-a9a9-c86788d1d64b.png)
+
+# 11. Hadoop Accelerator: Map Reduce
+![image](https://user-images.githubusercontent.com/3434274/139018974-c858e28f-0ee1-47cd-9c06-e0fb84bdba60.png)
+
+# 12. Spark Intergration: Shared RDDs & Improved SQL
+![image](https://user-images.githubusercontent.com/3434274/139019323-5ef3fd98-6ca7-41b8-b883-c3d87e9e3f7e.png)
+
+# 13. In-Memory Data Fabric: Security
+![image](https://user-images.githubusercontent.com/3434274/139019781-d5175123-12ae-4e7b-916f-795c9cb64127.png)
+
+
+
+
+
+
