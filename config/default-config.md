@@ -1,8 +1,32 @@
-## -- Demo config
-- Other example: https://github.com/apache/ignite/blob/master/examples/config/example-default.xml
+### Demo config
+## - Other example: https://github.com/apache/ignite/blob/master/examples/config/example-default.xml
+## - Basic config:
+```
+<?xml version="1.0" encoding="UTF-8"?>
 
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="grid.cfg" class="org.apache.ignite.configuration.IgniteConfiguration"/>
+
+    <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder">
+    <property name="addresses">
+         <list>
+            <value>10.3.48.54</value>
+            <value>10.3.48.56</value>
+            <value>10.3.48.82</value>
+         </list>
+    </property>
+    </bean>
+
+</beans>
+```
+
+## - A little advance config
 In this config. I did change port 47500 ( discovery ) --> 8100. Port 47100 ( communication ) -> 8101
-
 ```
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
