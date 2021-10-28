@@ -1,46 +1,57 @@
 ## -- Demo config
 - Other example: https://github.com/apache/ignite/blob/master/examples/config/example-default.xml
 
+In this config. I did change port 47500 ( discovery ) --> 8100. Port 47100 ( communication ) -> 8101
 
 ```
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!--
-  Licensed to the Apache Software Foundation (ASF) under one or more
-  contributor license agreements.  See the NOTICE file distributed with
-  this work for additional information regarding copyright ownership.
-  The ASF licenses this file to You under the Apache License, Version 2.0
-  (the "License"); you may not use this file except in compliance with
-  the License.  You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
--->
-
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <!--
-        Alter configuration below as needed.
-    -->
-    <bean id="grid.cfg" class="org.apache.ignite.configuration.IgniteConfiguration"/>
 
-    <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder">
-    <property name="addresses">
-         <list>
-            <value>10.3.48.54:47500</value>
-            <value>10.3.48.56:47500</value>
-            <value>10.3.48.82:47500</value>
-         </list>
+      <bean class="org.apache.ignite.configuration.IgniteConfiguration">
+      <property name="discoverySpi">
+            <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
+            <property name="localPort" value="8100"/>
+            <property name="ipFinder">
+                <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder">
+                    <property name="addresses">
+                        <list>
+                            <!--
+                              Explicitly specifying address of a local node to let it start and
+                              operate normally even if there is no more nodes in the cluster.
+                              You can also optionally specify an individual port or port range.
+                              -->
+                            <!-- <value>1.2.3.4</value> -->
+                            <!--
+                              IP Address and optional port range of a remote node.
+                              You can also optionally specify an individual port.
+                              -->
+                            <value>10.3.48.54:8100</value>
+                            <value>10.3.48.56:8100</value>
+                            <value>10.3.48.82:8100</value>
+                        </list>
+                    </property>
+                </bean>
+          </property>
+          </bean>
+          </property>
+
+
+    <!--
+    Explicitly configure TCP communication SPI changing local
+    port number for the nodes from the first cluster.
+    -->
+
+    <property name="communicationSpi">
+        <bean class="org.apache.ignite.spi.communication.tcp.TcpCommunicationSpi">
+            <property name="localPort" value="8101"/>
+        </bean>
     </property>
+
     </bean>
+
 
 </beans>
 
