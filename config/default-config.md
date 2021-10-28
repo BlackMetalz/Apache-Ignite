@@ -1,4 +1,7 @@
--- Demo config
+## -- Demo config
+- Other example: https://github.com/apache/ignite/blob/master/examples/config/example-default.xml
+
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 
