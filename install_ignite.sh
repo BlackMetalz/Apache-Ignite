@@ -4,7 +4,7 @@
 
 # Set Base directory and remove old directory if exists
 BASE_DIR=/data
-VERSION=2.10.0
+VERSION=2.11.0
 
 # Create folder for works
 if [ ! -d "$BASE_DIR/ignite/" ]; then
